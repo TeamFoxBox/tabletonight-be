@@ -20,6 +20,16 @@ class UsersController < ApplicationController
    end
  end
 
+def index
+  user = User.create(user_params)
+  if user.valid?
+    render json: user_param
+  else
+    render json: user.errors, status: :unprocessable_entity
+  end
+ends
+
+
  private
  def user_params
    params.require(:user).permit(:email, :name, :password, :password_confirmation)
