@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
 
    def create
-     puts 'HEY'
      user = User.new(user_params)
      if user.save
        token = Knock::AuthToken.new(payload: { sub: user.id }).token
