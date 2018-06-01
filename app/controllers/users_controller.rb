@@ -6,6 +6,8 @@ class UsersController < ApplicationController
    render json: user
  end
 
+ 
+
  def create
    user = User.new(user_params)
    if user.save
