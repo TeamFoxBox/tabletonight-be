@@ -7,7 +7,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'example.com'
+      #origins is the home page from the front end sending info
+    origins '*'
+
 
     resource '*',
       headers: :any,
