@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has many :reservations
+    has_many :reservations
 
     validates :name, :email, :password, presence: true
 
