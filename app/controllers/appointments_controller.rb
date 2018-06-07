@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require(:appointment).permit(
             :date,
-            :time_start
+            :time
         )
     end
 end
