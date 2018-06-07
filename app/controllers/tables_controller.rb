@@ -14,6 +14,8 @@ class TablesController < ApplicationController
       end
 
     def index
+
+
     end
     def update
     end
