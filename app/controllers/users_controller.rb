@@ -22,14 +22,15 @@ class UsersController < ApplicationController
      end
    end
 
-  def index
-    user = User.create(user_params)
-    if user.valid?
-      render json: user_param
-    else
-      render json: user.errors, status: :unprocessable_entity
-    end
-  end
+# To view all users
+  # def index
+  #   user = User.create(user_params)
+  #   if user.valid?
+  #     render json: user_param
+  #   else
+  #     render json: user.errors, status: :unprocessable_entity
+  #   end
+  # end
 
 
    private
