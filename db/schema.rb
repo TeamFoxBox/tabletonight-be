@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_190510) do
+ActiveRecord::Schema.define(version: 2018_06_07_210507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,24 +25,39 @@ ActiveRecord::Schema.define(version: 2018_05_31_190510) do
     t.index ["table_id"], name: "index_appointments_on_table_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "table"
+    t.date "date"
+    t.time "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "appointment_id"
+    t.bigint "table_id"
+    t.bigint "restaurant_id"
+    t.boolean "booked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["appointment_id"], name: "index_reservations_on_appointment_id"
+    t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+    t.index ["table_id"], name: "index_reservations_on_table_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "name"
+    t.string "res_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tables", force: :cascade do |t|
     t.bigint "restaurant_id"
-    t.integer "seats"
+    t.string "table_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
@@ -58,7 +73,10 @@ ActiveRecord::Schema.define(version: 2018_05_31_190510) do
   end
 
   add_foreign_key "appointments", "tables"
+  add_foreign_key "bookings", "users"
   add_foreign_key "reservations", "appointments"
+  add_foreign_key "reservations", "restaurants"
+  add_foreign_key "reservations", "tables"
   add_foreign_key "reservations", "users"
   add_foreign_key "tables", "restaurants"
 end
