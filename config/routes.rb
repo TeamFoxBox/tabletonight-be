@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :bookings
+  resources :bookings 
   resources :reservations
   resources :appointments
   resources :tables
