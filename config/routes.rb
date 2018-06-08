@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :tables
   resources :restaurants
   resources :users
+  resources :yelp
   post 'user_token' => 'user_token#create'
+
+
+  post '/yelp' => 'yelp#fetch'
+
 
 
 
