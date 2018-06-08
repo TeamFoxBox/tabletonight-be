@@ -7,8 +7,8 @@
 user1 = User.create(name: 'John Smith', email: 'test1@test.com', username: 'test1@test.com', password: 'Test1234', password_confirmation: 'Test1234')
 user2 = User.create(name: 'Tracey Blah', email: 'test2@test.com', username: 'test1@test.com', password: 'Test1234', password_confirmation: 'Test1234')
 
-booking1 = Booking.create(user_id:1, table: 'Table 1', date: '2018-10-10', time: '17:00')
-booking2 = Booking.create(user_id:2, table: 'Table 2', date: '2018-10-10', time: '17:00')
+booking1 = Booking.create(user_id:1, table: 'Table 1', date: '2018-10-10', time: '17:00', party_size:2)
+booking2 = Booking.create(user_id:2, table: 'Table 2', date: '2018-10-10', time: '17:00', party_size:4)
 
 #
 # res1 = Restaurant.create(res_name: 'Blind Burro')
