@@ -4,6 +4,13 @@ class BookingsController < ApplicationController
         render json: bookings
     end
 
+    def show
+        @confirmation = Booking.all.where(user_id: params[:id])
+        confirmation = @confirmation.last
+        print confirmation
+        render json: confirmation
+    end
+
     def create
         booking = Booking.new(booking_params)
         if booking.save
@@ -25,4 +32,6 @@ class BookingsController < ApplicationController
             :party_size
         )
     end
+
+
 end
