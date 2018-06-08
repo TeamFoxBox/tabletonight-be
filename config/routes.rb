@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
 
 
-  post '/yelp' => 'yelp#fetch'
+  post 'get_next_course' => 'yelp#get_next_course'
 
 
 
