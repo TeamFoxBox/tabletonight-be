@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
         render json: confirmation
     end
 
+
     def create
         booking = Booking.new(booking_params)
         if booking.save
