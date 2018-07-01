@@ -8,11 +8,11 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
       #origins is the home page from the front end sending info
-    origins 'https://table-tonight-fe.herokuapp.com/'
+    origins 'https://table-tonight-fe.herokuapp.com'
     #origins ' https://table-tonight-fe.herokuapp.com/'
 
 
-    resource 'https://table-tonight-fe.herokuapp.com/',
+    resource 'https://table-tonight-fe.herokuapp.com',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
