@@ -9,7 +9,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
       #origins is the home page from the front end sending info
     origins '*'
-    #origins ' https://table-tonight-fe.herokuapp.com/'
 
 
     resource '*',
