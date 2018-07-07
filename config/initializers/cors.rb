@@ -11,7 +11,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins 'https://table-tonight-fe.herokuapp.com'
 
 
-    resource 'https://table-tonight-fe.herokuapp.com',
+    resource 'https://table-tonight-be.herokuapp.com',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
