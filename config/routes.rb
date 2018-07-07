@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  resources :bookings 
-  resources :reservations
-  resources :appointments
-  resources :tables
-  resources :restaurants
-  resources :users
-  resources :yelp
+  resources :bookings, defaults: {format: :json}
+  resources :reservations, defaults: {format: :json}
+  resources :appointments, defaults: {format: :json}
+  resources :tables, defaults: {format: :json}
+  resources :restaurants, defaults: {format: :json}
+  resources :users, defaults: {format: :json}
   post 'user_token' => 'user_token#create'
 
 
-  post '/yelp' => 'yelp#fetch'
 
 
 
